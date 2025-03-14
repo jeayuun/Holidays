@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Independence Day | Activity 1: HTML Text and Images</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+    <style>
+        body {
+            background: url('images/independence/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: "Work Sans", sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            position: relative;
+            max-width: 600px;
+            background: rgba(119, 109, 230, 0.2); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+            margin: auto;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 90px;
+            color: #ffc107; 
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .description {
+            max-width: 600px;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        .ornaments img {
+            position: absolute;
+        }
+
+        .footer {
+            font-size: 14px;
+            width: 100%;
+            background: transparent;
+        }
+
+        .footer a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        button {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            padding: 1rem;
+            background: #CE1126; 
+            border-radius: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .gallery-section {
+            width: 100%;
+            background-color: #0b0d48;
+            overflow: hidden;
+            text-align: center;
+            max-height: 0;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .gallery-container {
+            width: 100%;
+            padding: 20px;
+            white-space: nowrap;
+            cursor: grab;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Floating Fire Residue */
+        .fire-residue {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .spark {
+            position: absolute;
+            background-color: rgba(255, 94, 0, 0.8); /* Fire orange */
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: riseFire linear infinite;
+            box-shadow: 0 0 8px rgba(255, 94, 0, 0.8);
+        }
+
+        @keyframes riseFire {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-50vh) scale(1);
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+
+        .archivo-black-regular {
+            font-family: "Archivo Black", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="flags" aria-hidden="true"></div>
+
+    <div class="container">
+        <div class="logo archivo-black-regular">Araw ng Kalayaan</div>
+        <p class="description">
+            Philippine Independence Day is celebrated every 
+            <span style="color: #ffc107; font-weight: bold;">June 12</span>, marking the nation's freedom from colonial rule. 
+            It is a time for patriotic pride, parades, and honoring the bravery of national heroes.
+        </p>
+        <button class="toggle-gallery">Mabuhay ang Pilipinas!</button>
+
+        <div class="ornaments">
+            <img src="images/philippines/sun.svg" class="ornament" style="top: -5%; left: 5%; width: 150px;">
+            <img src="images/philippines/three-stars.svg" class="ornament" style="top: -10%; left: 85%; width: 100px;">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Submitted by <a href="#">Jedidiah S. Villegas</a></p>
+    </div>
+
+    <div class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/independence/ind1.jpg" alt="Independence Day Parade">
+                <img src="images/independence/ind2.jpg" alt="Philippine Flag Raising">
+                <img src="images/independence/ind3.jpg" alt="Historical Reenactment">
+                <img src="images/independence/ind4.jpg" alt="Fireworks Celebration">
+                <img src="images/independence/ind5.jpg" alt="Filipino Cultural Dance">
+                <img src="images/independence/ind6.jpg" alt="Filipino Cultural Dance">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fireContainer = document.createElement("div");
+            fireContainer.classList.add("fire-residue");
+            document.body.appendChild(fireContainer);
+
+            function createSpark() {
+                const spark = document.createElement("div");
+                spark.classList.add("spark");
+
+                // Spawn from the bottom of the screen at random positions
+                spark.style.left = Math.random() * 100 + "vw";
+                spark.style.bottom = "0px"; // Start at the bottom
+                spark.style.animationDuration = Math.random() * 4 + 2 + "s"; // Vary duration
+                spark.style.width = spark.style.height = Math.random() * 6 + 2 + "px"; // Vary sizes
+
+                fireContainer.appendChild(spark);
+
+                // Remove spark after animation completes
+                setTimeout(() => {
+                    spark.remove();
+                }, 5000);
+            }
+
+            // Generate sparks at different intervals for a natural effect
+            setInterval(createSpark, 100);
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallerySection = document.querySelector(".gallery-section");
+            const toggleButton = document.querySelector(".toggle-gallery");
+            const body = document.body;
+
+            body.style.overflow = "hidden";
+
+            toggleButton.addEventListener("click", () => {
+                if (gallerySection.style.maxHeight === "0px" || gallerySection.style.maxHeight === "") {
+                    gallerySection.style.maxHeight = gallerySection.scrollHeight + "px";
+                    body.style.overflow = "auto";
+                } else {
+                    gallerySection.style.maxHeight = "0px";
+                    body.style.overflow = "hidden";
+                }
+            });
+
+            const flags = document.querySelector(".flags");
+
+            function createFlag() {
+                const flag = document.createElement("div");
+                flag.classList.add("flag");
+                flag.style.left = Math.random() * 100 + "vw";
+                flag.style.animationDuration = Math.random() * 3 + 2 + "s";
+                flags.appendChild(flag);
+
+                setTimeout(() => {
+                    flag.remove();
+                }, 5000);
+            }
+
+            setInterval(createFlag, 200);
+        });
+    </script>
+
+</body>
+
+</html>

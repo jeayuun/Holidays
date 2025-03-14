@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christmas Day by Jedidiah S. Villegas | Activity 1: HTML Text and Images</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: #223328;
@@ -15,8 +19,8 @@
             font-family: Work Sans, serif;
             text-align: center;
             margin: 0;
-            overflow: hidden; 
-            height: 100vh; 
+            overflow: hidden;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -150,17 +154,19 @@
         }
     </style>
 </head>
+
 <body>
     <div class="snowflakes" aria-hidden="true"></div>
-    
+
     <div class="container">
         <div class="logo mountains-of-christmas-bold">Christmas Day</div>
         <p class="description">
-            Christmas is a joyful holiday celebrated on 
-            <span style="color: #f7b733; font-weight: bold;">December 25th</span>, marking the birth of Jesus Christ. 
-            It is a time for family gatherings, gift-giving, festive decorations, and acts of kindness. 
-            Both a religious and cultural event, Christmas brings people together in a spirit of love, generosity, and celebration.
-        </p>        
+            Christmas is a joyful holiday celebrated on
+            <span style="color: #f7b733; font-weight: bold;">December 25th</span>, marking the birth of Jesus Christ.
+            It is a time for family gatherings, gift-giving, festive decorations, and acts of kindness.
+            Both a religious and cultural event, Christmas brings people together in a spirit of love, generosity, and
+            celebration.
+        </p>
         <button class="toggle-gallery">'Tis the season to be jolly!</button>
 
         <div class="ornaments">
@@ -199,10 +205,10 @@
             toggleButton.addEventListener("click", () => {
                 if (gallerySection.style.maxHeight === "0px" || gallerySection.style.maxHeight === "") {
                     gallerySection.style.maxHeight = gallerySection.scrollHeight + "px";
-                    body.style.overflow = "auto"; 
+                    body.style.overflow = "auto";
                 } else {
                     gallerySection.style.maxHeight = "0px";
-                    body.style.overflow = "hidden"; 
+                    body.style.overflow = "hidden";
                 }
             });
 
@@ -227,4 +233,5 @@
     </script>
 
 </body>
+
 </html>
