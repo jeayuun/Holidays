@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Day by Jedidiah S. Villegas | Activity 1: HTML Text and Images</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #223328;
+            color: white;
+            font-family: Work Sans, serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden; 
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 110px;
+            color: #f7b733;
+        }
+
+        .description {
+            max-width: 600px;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        .ornaments img {
+            position: absolute;
+        }
+
+        .footer {
+            font-size: 14px;
+            width: 100%;
+            background: transparent;
+        }
+
+        .footer a {
+            color: #f7b733;
+            text-decoration: none;
+        }
+
+        button {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-family: Pier, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            padding: 1rem;
+            background: #91121d;
+            border-radius: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .gallery-section {
+            width: 100%;
+            background: #16241D;
+            overflow: hidden;
+            text-align: center;
+            max-height: 0;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .gallery-container {
+            width: 100%;
+            padding: 20px;
+            white-space: nowrap;
+            cursor: grab;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .mountains-of-christmas-bold {
+            font-family: "Mountains of Christmas", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Snowflakes */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snowflakes" aria-hidden="true"></div>
+    
+    <div class="container">
+        <div class="logo mountains-of-christmas-bold">Christmas Day</div>
+        <p class="description">
+            Christmas is a joyful holiday celebrated on 
+            <span style="color: #f7b733; font-weight: bold;">December 25th</span>, marking the birth of Jesus Christ. 
+            It is a time for family gatherings, gift-giving, festive decorations, and acts of kindness. 
+            Both a religious and cultural event, Christmas brings people together in a spirit of love, generosity, and celebration.
+        </p>        
+        <button class="toggle-gallery">'Tis the season to be jolly!</button>
+
+        <div class="ornaments">
+            <img src="images/christmas/ornament1.svg" class="ornament" style="top: -5%; left: 5%; width: 180px;">
+            <img src="images/christmas/ornament2.svg" class="ornament" style="top: -10%; left: 18%; width: 150px;">
+            <img src="images/christmas/ornament3.svg" class="ornament" style="top: -20%; left: 70%; width: 200px;">
+            <img src="images/christmas/ornament4.svg" class="ornament" style="top: -10%; left: 85%; width: 150px;">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Submitted by <a>Jedidiah S. Villegas</a></p>
+    </div>
+
+    <div class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="images/christmas/xmas1.jpg" alt="Christmas Image 1">
+                <img src="images/christmas/xmas2.jpg" alt="Christmas Image 2">
+                <img src="images/christmas/xmas3.jpg" alt="Christmas Image 3">
+                <img src="images/christmas/xmas4.jpg" alt="Christmas Image 4">
+                <img src="images/christmas/xmas5.jpg" alt="Christmas Image 5">
+                <img src="images/christmas/xmas6.jpg" alt="Christmas Image 6">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallerySection = document.querySelector(".gallery-section");
+            const toggleButton = document.querySelector(".toggle-gallery");
+            const body = document.body;
+
+            body.style.overflow = "hidden";
+
+            toggleButton.addEventListener("click", () => {
+                if (gallerySection.style.maxHeight === "0px" || gallerySection.style.maxHeight === "") {
+                    gallerySection.style.maxHeight = gallerySection.scrollHeight + "px";
+                    body.style.overflow = "auto"; 
+                } else {
+                    gallerySection.style.maxHeight = "0px";
+                    body.style.overflow = "hidden"; 
+                }
+            });
+
+            const snowflakes = document.querySelector(".snowflakes");
+
+            function createSnowflake() {
+                const snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowflake.style.left = Math.random() * 100 + "vw";
+                snowflake.style.width = snowflake.style.height = Math.random() * 5 + 3 + "px";
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+                snowflake.style.opacity = Math.random();
+                snowflakes.appendChild(snowflake);
+
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+
+            setInterval(createSnowflake, 100);
+        });
+    </script>
+
+</body>
+</html>
