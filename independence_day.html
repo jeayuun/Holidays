@@ -160,7 +160,6 @@
             }
         }
 
-
         .archivo-black-regular {
             font-family: "Archivo Black", sans-serif;
             font-weight: 400;
@@ -215,21 +214,18 @@
                 const spark = document.createElement("div");
                 spark.classList.add("spark");
 
-                // Spawn from the bottom of the screen at random positions
                 spark.style.left = Math.random() * 100 + "vw";
-                spark.style.bottom = "0px"; // Start at the bottom
-                spark.style.animationDuration = Math.random() * 4 + 2 + "s"; // Vary duration
-                spark.style.width = spark.style.height = Math.random() * 6 + 2 + "px"; // Vary sizes
+                spark.style.bottom = "0px"; 
+                spark.style.animationDuration = Math.random() * 4 + 2 + "s"; 
+                spark.style.width = spark.style.height = Math.random() * 6 + 2 + "px"; 
 
                 fireContainer.appendChild(spark);
 
-                // Remove spark after animation completes
                 setTimeout(() => {
                     spark.remove();
                 }, 5000);
             }
 
-            // Generate sparks at different intervals for a natural effect
             setInterval(createSpark, 100);
         });
 
